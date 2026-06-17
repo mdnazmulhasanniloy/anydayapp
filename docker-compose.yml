@@ -62,7 +62,7 @@ services:
     restart: unless-stopped
     command: ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
     environment:
-      MONGO_INITDB_DATABASE: any_day_app_food
+      MONGO_INITDB_DATABASE: any_day_app
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
     volumes:
