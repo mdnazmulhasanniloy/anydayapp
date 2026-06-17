@@ -18,15 +18,19 @@ services:
       - any_day_app_net
 
   ai:
-    build: ./ai_server
+    image: nazmulhasn/any_day_app_ai:latest
     container_name: any_day_app_ai
-    ports:
-      - '2007:2007'
+    restart: unless-stopped
     env_file:
       - .env
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro   
+    ports:
+      - '2007:2007'
+    depends_on:
+      mongo:
+        condition: service_started
+    networks:
+      - any_day_app_net
+
 
   nginx:
     image: nginx:1.25-alpine
