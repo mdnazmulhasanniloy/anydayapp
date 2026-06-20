@@ -22,7 +22,7 @@ services:
     container_name: any_day_app_ai
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.local
     environment:
       NODE_ENV: development
       OPENAI_API_KEY: ${OPENAI_API_KEY}
